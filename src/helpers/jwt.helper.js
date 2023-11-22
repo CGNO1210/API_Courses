@@ -13,8 +13,10 @@ let generateToken = (user, secretSignature, tokenLife) => {
     return new Promise((resolve, reject) => {
         // Định nghĩa những thông tin của user mà bạn muốn lưu vào token ở đây
         const userData = {
+            firstName: user.firstName,
+            lastName: user.lastName,
             email: user.email,
-            isAdmin:user.isAdmin
+            isAdmin: user.isAdmin
         }
         // Thực hiện ký và tạo token
         sign(

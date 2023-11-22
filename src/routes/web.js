@@ -16,17 +16,18 @@ let router = express.Router();
 
 let initWebRoutes = (app) => {
     router.post("/api/login", userController.handleLogin)
-    router.post("/refesh-token", userController.refreshToken)
-    router.post("/api/create-new-user", userController.handleCreateNewUser)
+    router.post("/refeshToken", userController.refreshToken)
+    router.post("/api/createNewUser", userController.handleCreateNewUser)
 
-    //AuthMiddleWare
-    router.use(AuthMiddleWare.isAuth)
+
     //Client
     router.get('/api/getAllCourses', courseController.getAllCourses)
     router.get('/api/searchCourse', courseController.searchCourse)
     router.get('/api/getAllChapters', chapterController.getAllChapters)
     router.get('/api/getAllLessons', lessonController.getAllLessons)
     //Register Course
+    //AuthMiddleWare
+    router.use(AuthMiddleWare.isAuth)
     router.post('/api/createRegisterCourse', registerCourseController.createRegisterCourse)
     //Admin
     //AdminMiddleWare
@@ -34,7 +35,7 @@ let initWebRoutes = (app) => {
     //User
     router.get('/api/getAllUser', apiController.handleGetAllUser)
     router.put("/api/edit-user", userController.handleEditUser)
-    router.delete("/api/delete-user", userController.handleDeleteUser)
+    router.delete("/api/deleteUser", userController.handleDeleteUser)
     //Manage Course
     router.post('/api/createCourse', upload.single('img'), courseController.createCourse)
     router.put('/api/editCourse', upload.single('img'), courseController.editCourse)
@@ -42,7 +43,7 @@ let initWebRoutes = (app) => {
     //Manage Chapter
     router.post('/api/createChapter', chapterController.createChapter)
     router.put('/api/editChapter', chapterController.editChapter)
-    router.delete('/api/deleteCourse', courseController.deleteCourse)
+    router.delete('/api/deleteChapter', chapterController.deleteChapter)
     //Manage Lesson
     router.post('/api/createLesson', upload.single('video'), lessonController.createLesson)
     router.put('/api/editLesson', upload.single('video'), lessonController.editLesson)

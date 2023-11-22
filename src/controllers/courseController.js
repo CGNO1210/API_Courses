@@ -39,7 +39,7 @@ let createCourse = async (req, res) => {
 }
 
 let editCourse = async (req, res) => {
-    let message = await courseService.updateCourse(req.body,req.file)
+    let message = await courseService.updateCourse(req.body, req.file)
     return res.status(200).json(message)
 }
 

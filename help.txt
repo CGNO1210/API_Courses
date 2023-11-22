@@ -1,2 +1,6 @@
 npx sequelize model:create --name [ten_model] --attributes [ten_attr]:[datatype_attr],[ten_attr]:[data_type_attr],[ten_attr]:[data_type_attr]
 ex:npx sequelize model:create --name User --attributes firstName:string,lastName:string,email:string,password:string
+
+khởi tạo csdl
+npx sequelize-cli db:migrate
+ npx sequelize-cli db:seed:all

@@ -19,7 +19,7 @@ let getLesson = (id) => {
             }
             if (id && id !== 'ALL') {
                 lessons = await db.Lesson.findAll({
-                    where: { idChapter: id },
+                    where: { id },
                 })
             }
             resolve(lessons)
@@ -69,7 +69,7 @@ let createLesson = (data, file) => {
     })
 }
 
-let updateLesson = (data,file) => {
+let updateLesson = (data, file) => {
     return new Promise(async (resolve, reject) => {
         try {
             if (!file.mimetype.startsWith('video/')) {

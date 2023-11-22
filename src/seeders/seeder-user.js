@@ -1,7 +1,4 @@
 'use strict';
-import bcrypt from 'bcrypt';
-const salt = bcrypt.genSaltSync(10)
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -9,7 +6,7 @@ module.exports = {
       firstName: 'John',
       lastName: 'Doe',
       email: 'admin@gmail.com',
-      password: bcrypt.hashSync('1234', salt),
+      password: '$2b$10$9OrChnYlw99IZA14DpSj3ejW2XdH6uF5f6ew8Gdi.SRwZecAS5tsy',//1234
       isAdmin: 1,
       createdAt: new Date(),
       updatedAt: new Date()

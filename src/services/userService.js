@@ -36,7 +36,6 @@ let compareUserPassword = (email, password) => {
             let userData = {}
             let user = await db.User.findOne({
                 where: { email: email },
-                attributes: ['email', 'password', 'isAdmin'],
                 raw: true
             })
             if (user) {
